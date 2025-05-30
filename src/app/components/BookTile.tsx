@@ -1,6 +1,12 @@
 import React from "react";
+import { Book, Genre } from "../types/api";
 
-const BookView = ({ book }) => {
+type BookViewProps = {
+  book: Book;
+  genre: Genre;
+};
+
+const BookTile = ({ book, genre }: BookViewProps) => {
   return (
     <div className="m-3 p-4 bg-pink-300 flex-row rounded-2xl border-2 border-pink-400">
       <div className="flex-col w-fit">
@@ -14,4 +20,4 @@ const BookView = ({ book }) => {
   );
 };
 
-export default BookView;
+export default BookTile;

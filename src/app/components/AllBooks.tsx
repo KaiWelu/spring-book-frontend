@@ -2,23 +2,14 @@
 
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import BookView from "./BookView";
+import BookTile from "./BookTile";
+import { Book } from "../types/api";
 
 async function fetchBooks() {
   const res = await fetch("http://localhost:8080/api/books");
   if (!res.ok) throw new Error("Failed to fetch all Books!");
   return res.json();
 }
-
-/* export type Book = {
-  id: number;
-  title: string;
-  author: string;
-  year: number;
-  genre: string;
-  price: number;
-  available: boolean;
-}; */
 
 const AllBooks = () => {
   const { data, error, isLoading } = useQuery({
@@ -34,8 +25,8 @@ const AllBooks = () => {
   return (
     <div>
       <ul>
-        {data.map((book: any) => {
-          return <BookView book={book} key={book.id} />;
+        {data.map((book: Book) => {
+          return <BookTile book={book} key={book.id} />;
         })}
       </ul>
     </div>
