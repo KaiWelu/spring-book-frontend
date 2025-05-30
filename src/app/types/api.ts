@@ -23,8 +23,8 @@ export type Author = {
 export type BookDTO = {
   title: string;
   author: string;
-  year: number | null;
+  year: number;
   genreNames: string[];
-  price: number | null;
+  price: number;
   inStock: boolean;
 };
