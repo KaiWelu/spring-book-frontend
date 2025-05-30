@@ -1,12 +1,12 @@
 import React from "react";
-import { Book, Genre } from "../types/api";
+import { Book } from "../types/api";
 
 type BookViewProps = {
   book: Book;
-  genre: Genre;
+  //genre: Genre; this is not needed atm
 };
 
-const BookTile = ({ book, genre }: BookViewProps) => {
+const BookTile = ({ book }: BookViewProps) => {
   return (
     <div className="m-3 p-4 bg-amber-50 flex flex-row rounded-e-xs items-start border-1 border-amber-100">
       <div className="flex flex-col flex-1 p-3 bg-pink-200 rounded-br-4xl rounded-xs shadow-md h-auto gap-2">

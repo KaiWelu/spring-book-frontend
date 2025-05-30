@@ -19,3 +19,12 @@ export type Author = {
   name: string;
   bio: string | null;
 };
+
+export type BookDTO = {
+  title: string;
+  author: string;
+  year: number | null;
+  genreNames: string[];
+  price: number | null;
+  inStock: boolean;
+};

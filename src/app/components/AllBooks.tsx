@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import BookTile from "./BookTile";
 import { Book } from "../types/api";
+import BookForm from "./BookForm";
 
 async function fetchBooks() {
   const res = await fetch("http://localhost:8080/api/books");
@@ -24,6 +25,7 @@ const AllBooks = () => {
 
   return (
     <div>
+      <BookForm />
       <ul>
         {data.map((book: Book) => {
           return <BookTile book={book} key={book.id} />;
