@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { Book } from "../types/api";
+import { useDeleteBook } from "../hooks/books/useDeleteBook";
 
 type BookViewProps = {
   book: Book;
@@ -7,6 +10,8 @@ type BookViewProps = {
 };
 
 const BookTile = ({ book }: BookViewProps) => {
+  const { mutate } = useDeleteBook();
+
   return (
     <div className="m-3 p-4 bg-amber-50 flex flex-row rounded-e-xs items-start border-1 border-amber-100">
       <div className="flex flex-col flex-1 p-3 bg-pink-200 rounded-br-4xl rounded-xs shadow-md h-auto gap-2">
@@ -36,6 +41,14 @@ const BookTile = ({ book }: BookViewProps) => {
             </p>
           </div>
         </div>
+        <button
+          className="bg-orange-600 text-amber-50 font-bold w-fit p-2 rounded-md hover:shadow-xl hover:shadow-red-500 hover:text-red-600 hover:bg-amber-50"
+          onClick={() => {
+            mutate(book.id);
+          }}
+        >
+          DELETE
+        </button>
       </div>
       <div className="flex flex-col ml-5 flex-2 p-3 bg-emerald-100 rounded-br-4xl rounded-xs shadow-md">
         <h2 className="text-xl pb-1 font-bold">{book.author.name}</h2>
